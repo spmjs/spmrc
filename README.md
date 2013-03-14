@@ -65,3 +65,9 @@ Write object to `~/.spm/spmrc`.
 ```js
 spmrc.write(obj)
 ```
+
+## Changelog
+
+**2013-03-14** `0.1.0`
+
+First version.
