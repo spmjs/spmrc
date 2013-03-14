@@ -1,0 +1,11 @@
+{
+  "name": "spmrc",
+  "version": "0.1.0",
+  "description": "spmrc",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
+}
