@@ -1,4 +1,4 @@
-# spmrc
+# spmrc [![Build Status](https://travis-ci.org/spmjs/spmrc.png)](https://travis-ci.org/spmjs/spmrc)
 
 The rc manager for spm.
 
@@ -67,6 +67,10 @@ spmrc.write(obj)
 ```
 
 ## Changelog
+
+**2013-03-17** `0.1.1`
+
+spmrc has default values.
 
 **2013-03-14** `0.1.0`
 
