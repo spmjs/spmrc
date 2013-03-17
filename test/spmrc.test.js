@@ -9,6 +9,10 @@ describe('spmrc', function() {
     spmrc.get().should.eql({});
   });
 
+  it('get default values', function() {
+    spmrc.get('install.path').should.equal('sea-modules');
+  });
+
   it('set user.username = spm', function() {
     spmrc.set('user.username', 'spm');
   });

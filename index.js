@@ -19,6 +19,12 @@ var path = require('path');
 exports.spmrcfile = path.join(process.env.HOME, '.spm', 'spmrc');
 var localrc = path.join(process.cwd(), '.spmrc');
 
+var defaults = {
+  'source.default.url': 'https://spmjs.org',
+  'install.path': 'sea-modules',
+  'install.format': '{{family}}/{{name}}/{{version}}/{{filename}}'
+};
+
 
 exports.get = function(key) {
   var file = exports.spmrcfile;
@@ -33,6 +39,9 @@ exports.get = function(key) {
   keys.forEach(function(section) {
     ret = ret ? ret[section] : null;
   });
+  if (!ret && defaults[key]) {
+    return defaults[key];
+  }
   return ret;
 };
 
