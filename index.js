@@ -19,7 +19,17 @@ var path = require('path');
 exports.spmrcfile = path.join(process.env.HOME, '.spm', 'spmrc');
 var localrc = path.join(process.cwd(), '.spmrc');
 
+var tmpdir = process.env.TMPDIR || process.env.TMP || process.env.TEMP;
+if (!tmpdir) {
+  if (process.platform === 'win32') {
+    tmpdir = 'c:\\windows\\temp';
+  } else {
+    tmpdir = '/tmp';
+  }
+}
+
 var defaults = {
+  'user.temp': tmpdir,
   'source.default.url': 'https://spmjs.org',
   'install.path': 'sea-modules',
   'install.format': '{{family}}/{{name}}/{{version}}/{{filename}}'
