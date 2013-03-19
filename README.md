@@ -68,6 +68,10 @@ spmrc.write(obj)
 
 ## Changelog
 
+**2013-03-17** `0.1.2`
+
+spmrc has `user.temp` default value.
+
 **2013-03-17** `0.1.1`
 
 spmrc has default values.
