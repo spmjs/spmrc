@@ -16,7 +16,10 @@
 var fs = require('fs');
 var path = require('path');
 
-var homedir = process.env.HOME || process.env.HOMEPATH;
+var homedir = process.env.HOME;
+if (!homedir) {
+  homedir = process.env.HOMEDRIVE + process.env.HOMEPATH;
+}
 exports.spmrcfile = path.join(homedir, '.spm', 'spmrc');
 var localrc = path.join(process.cwd(), '.spmrc');
 
@@ -31,6 +34,7 @@ if (!tmpdir) {
 
 var defaults = {
   'user.temp': tmpdir,
+  'user.home': homedir,
   'source.default.url': 'https://spmjs.org',
   'install.path': 'sea-modules',
   'install.format': '{{family}}/{{name}}/{{version}}/{{filename}}'
