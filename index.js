@@ -16,7 +16,8 @@
 var fs = require('fs');
 var path = require('path');
 
-exports.spmrcfile = path.join(process.env.HOME, '.spm', 'spmrc');
+var homedir = process.env.HOME || process.env.HOMEPATH;
+exports.spmrcfile = path.join(homedir, '.spm', 'spmrc');
 var localrc = path.join(process.cwd(), '.spmrc');
 
 var tmpdir = process.env.TMPDIR || process.env.TMP || process.env.TEMP;
