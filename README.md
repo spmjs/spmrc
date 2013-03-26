@@ -68,6 +68,10 @@ spmrc.write(obj)
 
 ## Changelog
 
+**2013-03-26** `0.1.3`
+
+bugfix for windows. windows use `process.env.HOMEPATH`.
+
 **2013-03-17** `0.1.2`
 
 spmrc has `user.temp` default value.
