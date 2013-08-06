@@ -4,6 +4,10 @@
   "description": "spmrc",
   "dependencies": {
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spmjs/spmrc.git"
+  },
   "devDependencies": {
     "mocha": "*",
     "should": "*"
