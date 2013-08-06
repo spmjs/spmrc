@@ -78,7 +78,7 @@ exports.set = function(key, value) {
     updateConfig(data);
     return data;
   }
-  throw 'A valid input should be something like user.username=spm';
+  throw new Error('A valid input should be something like user.username=spm');
 };
 
 
