@@ -20,7 +20,13 @@ var homedir = process.env.HOME;
 if (!homedir) {
   homedir = process.env.HOMEDRIVE + process.env.HOMEPATH;
 }
+
+/**
+ * Where is your spmrc file.
+ */
 exports.spmrcfile = path.join(homedir, '.spm', 'spmrc');
+
+
 var localrc = path.join(process.cwd(), '.spmrc');
 
 var tmpdir = process.env.TMPDIR || process.env.TMP || process.env.TEMP;
@@ -60,6 +66,7 @@ exports.get = function(key) {
   return ret;
 };
 
+
 exports.set = function(key, value) {
   var file = exports.spmrcfile;
   var data = parse(file);
@@ -82,6 +89,9 @@ exports.set = function(key, value) {
 };
 
 
+/**
+ * Combine set and get into one function.
+ */
 exports.config = function(key, value) {
   if (!value) return exports.get(key);
   return exports.set(key, value);
@@ -93,8 +103,12 @@ var regex = {
   param: /^\s*([\w\.\-\_]+)\s*=\s*(.*?)\s*$/,
   comment: /^\s*;.*$/
 };
-
 var _cache = {};
+
+
+/**
+ * Parse ini format data.
+ */
 function parse(file) {
   file = file || exports.spmrcfile;
   if (!fs.existsSync(file)) {
@@ -157,6 +171,10 @@ function updateConfig(data) {
 }
 exports.write = updateConfig;
 
+
+/**
+ * Make config data to objects.
+ */
 function renderConfig(data) {
   var ret = {};
   Object.keys(data).forEach(function(section) {
@@ -171,6 +189,10 @@ function renderConfig(data) {
   return ret;
 }
 
+
+/**
+ * Merge object key values.
+ */
 function merge(obj) {
   var target, key;
 
@@ -186,6 +208,10 @@ function merge(obj) {
   return obj;
 }
 
+
+/**
+ * Recursively mkdir. Like `mkdir -r`
+ */
 function mkdir(dirpath) {
   if (fs.existsSync(dirpath)) return;
 
