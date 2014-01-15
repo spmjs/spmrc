@@ -43,7 +43,7 @@ var defaults = {
   'user.home': homedir,
   'source.default.url': 'https://spmjs.org',
   'install.path': 'sea-modules',
-  'install.format': '{{family}}/{{name}}/{{version}}/{{filename}}'
+  'install.format': '{{name}}/{{version}}/{{filename}}'
 };
 
 
