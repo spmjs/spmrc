@@ -16,9 +16,17 @@ describe('spmrc', function() {
     spmrc.get('source.default.url').should.equal('https://spmjs.org');
   });
 
+  it("write data", function() {
+    spmrc.write({
+      user: {
+        username: "spm3"
+      }
+    });
+    spmrc.get('user.username').should.equal('spm3');
+  });
+
   it('set user.username = spm', function() {
     spmrc.set('user.username', 'spm');
-    fs.existsSync(spmrc.spmrcfile).should.equal(true);
   });
 
   it('get user.username', function() {
