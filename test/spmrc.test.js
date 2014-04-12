@@ -1,9 +1,10 @@
 var fs = require('fs');
+var path = require('path');
 var should = require('should');
 var spmrc = require('..');
 
 describe('spmrc', function() {
-  spmrc.spmrcfile = './tmp/spmrc';
+  spmrc.spmrcfile = path.join(process.cwd(), './test/tmp/spmrc');
 
   it('get nothing', function() {
     spmrc.get().should.eql({});
