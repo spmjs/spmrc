@@ -3,7 +3,7 @@ var should = require('should');
 var spmrc = require('..');
 
 describe('spmrc', function() {
-  spmrc.spmrcfile = 'tmp/spmrc';
+  spmrc.spmrcfile = './tmp/spmrc';
 
   it('get nothing', function() {
     spmrc.get().should.eql({});
@@ -42,5 +42,7 @@ describe('spmrc', function() {
     spmrc.get('section.title.key').should.equal('value2');
   });
 
-  fs.unlink(spmrc.spmrcfile);
+  after(function() {
+    fs.unlink(spmrc.spmrcfile);
+  });
 });
