@@ -13,7 +13,7 @@ describe('spmrc', function() {
 
   it('get default values', function() {
     spmrc.get('install.path').should.equal('sea-modules');
-    spmrc.get('source.default.url').should.equal('https://spmjs.org');
+    spmrc.get('source.default.url').should.equal('http://spmjs.io');
   });
 
   it("write data", function() {

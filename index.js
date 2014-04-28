@@ -41,7 +41,7 @@ if (!tmpdir) {
 var defaults = {
   'user.temp': tmpdir,
   'user.home': homedir,
-  'source.default.url': 'https://spmjs.io',
+  'source.default.url': 'http://spmjs.io',
   'install.path': 'sea-modules'
 };
 
