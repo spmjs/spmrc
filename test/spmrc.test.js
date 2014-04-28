@@ -1,9 +1,11 @@
 var fs = require('fs');
+var path = require('path');
 var should = require('should');
 var spmrc = require('..');
 
 describe('spmrc', function() {
-  spmrc.spmrcfile = 'tmp/spmrc';
+
+  spmrc.spmrcfile = path.join(__dirname, './tmp/spmrc');
 
   it('get nothing', function() {
     spmrc.get().should.eql({});
@@ -11,6 +13,16 @@ describe('spmrc', function() {
 
   it('get default values', function() {
     spmrc.get('install.path').should.equal('sea-modules');
+    spmrc.get('source.default.url').should.equal('https://spmjs.org');
+  });
+
+  it("write data", function() {
+    spmrc.write({
+      user: {
+        username: "spm3"
+      }
+    });
+    spmrc.get('user.username').should.equal('spm3');
   });
 
   it('set user.username = spm', function() {
@@ -30,6 +42,20 @@ describe('spmrc', function() {
     spmrc.get('user.username').should.equal('spmjs');
   });
 
+  it('get localrc', function() {
+    var localrc = path.join(process.cwd(), '.spmrc');
+    var content = "[user]\nusername = spmjs2";
+
+    if (fs.existsSync(localrc)) {
+      console.warn(".spmrc should not be hered")
+      return;
+    }
+
+    fs.writeFileSync(localrc, content);
+    spmrc.get('user.username').should.equal('spmjs2');
+    fs.unlinkSync(localrc);
+  });
+
   it('set section:title.key', function() {
     spmrc.set('section:title.key', 'value');
     spmrc.get('section:title.key').should.equal('value');
@@ -42,5 +68,7 @@ describe('spmrc', function() {
     spmrc.get('section.title.key').should.equal('value2');
   });
 
-  fs.unlink(spmrc.spmrcfile);
+  after(function() {
+    fs.unlinkSync(spmrc.spmrcfile);
+  });
 });

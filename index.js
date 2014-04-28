@@ -1,7 +1,7 @@
 /*
  * spmrc
  *
- * Thanks to: https://github.com/shockie/iniparser
+ * Thanks to: https://github.com/shockie/node-iniparser
  *
  * An example of ~/.spm/spmrc-3x
  *
@@ -195,7 +195,7 @@ function renderConfig(data) {
 function merge(obj) {
   var target, key;
 
-  for (var i = 0; i < arguments.length; i++) {
+  for (var i = 1; i < arguments.length; i++) {
     target = arguments[i];
     for (key in target) {
       if (Object.prototype.hasOwnProperty.call(target, key)) {
