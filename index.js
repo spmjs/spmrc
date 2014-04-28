@@ -3,13 +3,13 @@
  *
  * Thanks to: https://github.com/shockie/iniparser
  *
- * An example of ~/.spm/spmrc
+ * An example of ~/.spm/spmrc-3x
  *
  * [user]
  * username=lepture
  *
  * [server:spm]
- * url = https://spmjs.org
+ * url = https://spmjs.io
  *
  */
 
@@ -24,7 +24,7 @@ if (!homedir) {
 /**
  * Where is your spmrc file.
  */
-exports.spmrcfile = path.join(homedir, '.spm', 'spmrc');
+exports.spmrcfile = path.join(homedir, '.spm', 'spmrc-3x');
 
 
 var localrc = path.join(process.cwd(), '.spmrc');
@@ -41,7 +41,7 @@ if (!tmpdir) {
 var defaults = {
   'user.temp': tmpdir,
   'user.home': homedir,
-  'source.default.url': 'https://spmjs.org',
+  'source.default.url': 'https://spmjs.io',
   'install.path': 'sea-modules'
 };
 
