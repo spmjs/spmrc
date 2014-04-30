@@ -8,8 +8,7 @@ The rc manager for spm.
 
 Now we use `~/.spm/spmrc-3x` as default rc file for [spm@3.x](https://github.com/spmjs/spm/tree/master);
 
-----
-
+## Usage
 
 ```js
 var spmrc = require('spmrc');
@@ -26,7 +25,7 @@ url = http://aralejs.org/hello
 ```
 
 
-## spmrc.get
+### spmrc.get
 
 Get information in spmrc:
 
@@ -38,7 +37,7 @@ spmrc.get('user.username')
 // spm
 ```
 
-## spmrc.set
+### spmrc.set
 
 Set value in a section:
 
@@ -46,7 +45,7 @@ Set value in a section:
 spmrc.set('user.username', 'spmjs')
 ```
 
-## spmrc.config
+### spmrc.config
 
 A mix of get and set:
 
@@ -55,7 +54,7 @@ spmrc.config('user.username')  // equal spmrc.get
 spmrc.config('user.username', 'spm')  // equal spmrc.set
 ```
 
-## spmrc.parse
+### spmrc.parse
 
 Parse an ini file to object. Default file is `~/.spm/spmrc`.
 
@@ -64,7 +63,7 @@ spmrc.parse(file)
 // an object
 ```
 
-## spmrc.write
+### spmrc.write
 
 Write object to `~/.spm/spmrc`.
 
