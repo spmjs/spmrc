@@ -4,12 +4,18 @@ The rc manager for spm.
 
 ----
 
+## Upgrade info for 1.x.x
+
+Now we use `~/.spm/spmrc-3x` as default rc file for [spm@3.x](https://github.com/spmjs/spm/tree/master);
+
+----
+
 
 ```js
 var spmrc = require('spmrc');
 ```
 
-spmrc is located at `~/.spm/spmrc` in ini format. An example:
+spmrc is located at `~/.spm/spmrc-3x` in ini format. An example:
 
 ```
 [user]
@@ -67,6 +73,10 @@ spmrc.write(obj)
 ```
 
 ## Changelog
+
+**2013-03-26** `1.0.0`
+
+`spmrc` -> `spmrc-3x`.
 
 **2013-03-26** `0.1.3`
 
