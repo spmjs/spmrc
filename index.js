@@ -81,10 +81,13 @@ exports.set = function(key, value) {
   if (keys.length === 2) {
     data[keys[0]] = data[keys[0]] || {};
     data[keys[0]][keys[1]] = value;
-    updateConfig(data);
-    return data;
+  } else if(keys.length === 1) {
+    data[keys[0]] = value;
+  } else {
+    throw new Error('A valid input should be something like user.username=spm');
   }
-  throw new Error('A valid input should be something like user.username=spm');
+  updateConfig(data);
+  return data;
 };
 
 
@@ -159,10 +162,14 @@ function updateConfig(data) {
     } else {
       init = false;
     }
-    text += '[' + section + ']\n';
-    Object.keys(data[section]).forEach(function(key) {
-      text += key + ' = ' + data[section][key] + '\n';
-    });
+    if (typeof data[section] === 'object') {
+      text += '[' + section + ']\n';
+      Object.keys(data[section]).forEach(function(key) {
+        text += key + ' = ' + data[section][key] + '\n';
+      });
+    } else {
+      text += section + ' = ' + data[section];
+    }
   });
   mkdir(path.dirname(file));
   fs.writeFileSync(file, text);

@@ -33,6 +33,14 @@ describe('spmrc', function() {
     spmrc.get('user.username').should.equal('spm');
   });
 
+  it('set auth = spm', function() {
+    spmrc.set('auth', 'spm');
+  });
+
+  it('get auth', function() {
+    spmrc.get('auth').should.equal('spm');
+  });
+
   it('get via config', function() {
     spmrc.config('user.username').should.equal('spm');
   });
