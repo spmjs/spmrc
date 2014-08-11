@@ -12,7 +12,7 @@ describe('spmrc', function() {
   });
 
   it('get default values', function() {
-    spmrc.get('install.path').should.equal('sea-modules');
+    spmrc.get('install.path').should.equal('spm_modules');
     spmrc.get('registry').should.equal('http://spmjs.io');
   });
 
