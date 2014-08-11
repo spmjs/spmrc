@@ -42,7 +42,7 @@ var defaults = {
   'user.temp': tmpdir,
   'user.home': homedir,
   'registry': 'http://spmjs.io',
-  'install.path': 'sea-modules'
+  'install.path': 'spm_modules'
 };
 
 
